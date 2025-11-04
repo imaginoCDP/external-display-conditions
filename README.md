@@ -27,7 +27,7 @@ STR:
 
    a. Change the emailId passed to the editor [here](./src/creds.js). Let's call it `"emailIdToto"` 
 
-   b. Change the port in (vite.config.js)[./vite.config.js] (ex: 5002) and run `npm run dev` again. 
+   b. Change the port in [vite.config.js](./vite.config.js) (ex: 5002) and run `npm run dev` again. 
 
 Content loaded correctly 
 
