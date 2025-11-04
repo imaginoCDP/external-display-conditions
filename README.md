@@ -10,7 +10,7 @@ npm install
 npm run dev
 ```
 
-# Issue 1: the editor can't load existing conditions 'extraData' from existing template
+# Issue 1: the editor can't load conditions 'extraData' from existing template
 
 When loading the editor for the first time, the editor will be loaded with the [default template.json](./src/template.json). 
 This template contains an existing condition with `extraData`. 
