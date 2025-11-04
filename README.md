@@ -65,7 +65,7 @@ But it is not the one loaded in the editor as you can see it above
 
 &nbsp;
 
-5. Reload the page. The editor load now the correct template (the one passed to init it)
+5. Reload the page. The editor first load the wrong template, then update it with the correct template, after `onTemplateLoaded` 
 
 <img width="728" height="289" alt="Screenshot 2025-11-04 at 17 12 22" src="https://github.com/user-attachments/assets/3b069b13-5c83-4bf1-9306-8de0402f1d66" />
 
