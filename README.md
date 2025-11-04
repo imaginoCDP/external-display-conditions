@@ -46,7 +46,9 @@ But the editor keeps showing the initial template (maybe it retrieves it from st
 
 <img width="984" height="458" alt="Screenshot 2025-11-04 at 16 48 51" src="https://github.com/user-attachments/assets/b8be7220-ed88-4ddb-a152-483bbe7e62be" />
 
-When we log the console, we notice that the template passed to the editor is the one from the localStorage (the one with button `"Will be Saved to Local Storage"`). 
+&nbsp;
+
+When we log the console, we notice that the template passed to the editor is the one from the localStorage (the one with button `"Will be Saved to Local Storage"`). Alright.
 But it is not the one loaded in the editor as you can see it above
 
 <img width="448" height="160" alt="Screenshot 2025-11-04 at 17 01 18" src="https://github.com/user-attachments/assets/f762230b-0349-4bba-b3fd-4b2c93f24bb5" />
