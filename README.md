@@ -25,7 +25,7 @@ STR:
 
 1. Stop the app if it is running. 
 
-   a. Change the emailId passed to the editor [here](./src/creds.js). Let's call it `"emailIdToto"` 
+   a. Change the emailId passed to the editor [in creds.js](./src/creds.js). Let's call it `"emailIdToto"` 
 
    b. Change the port in [vite.config.js](./vite.config.js) (ex: 5002) and run `npm run dev` again. 
 
@@ -41,8 +41,8 @@ Content loaded correctly
 
 &nbsp;
 
-3. Reload the page. the editor will be initialized with the template loaded from localStorage (the one we save above). 
-The editor keeps showing the initial template (maybe it retrieve it from stripo reference database).
+3. Reload the page. we pass the template loaded from localStorage (the one we save above) to the editor. 
+But the editor keeps showing the initial template (maybe it retrieves it from stripo reference database).
 
 <img width="984" height="458" alt="Screenshot 2025-11-04 at 16 48 51" src="https://github.com/user-attachments/assets/b8be7220-ed88-4ddb-a152-483bbe7e62be" />
 
