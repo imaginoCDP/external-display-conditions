@@ -1,4 +1,4 @@
-# External Display Conditions Extension to simulate found issues
+# External Display Conditions Extension to reproduce issues [here](https://github.com/stripoinc/stripo-plugin-releases/issues/6#issuecomment-3481416362) 
 
 ## Setup and Install Dependencies
 
