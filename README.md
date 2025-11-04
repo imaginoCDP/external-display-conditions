@@ -70,7 +70,9 @@ But it is not the one loaded in the editor as you can see it above
 <img width="728" height="289" alt="Screenshot 2025-11-04 at 17 12 22" src="https://github.com/user-attachments/assets/3b069b13-5c83-4bf1-9306-8de0402f1d66" />
 
 
+&nbsp;
 
+**Expected behavior**: the template we pass to the editor must be the one loaded, even if we use the same emailId to load different templates
 
 
 
