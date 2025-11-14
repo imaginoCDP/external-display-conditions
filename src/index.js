@@ -1,6 +1,19 @@
 import extension from "./extension.js";
 import { PLUGIN_ID, SECRET_KEY, EDITOR_URL, EMAIL_ID, USER_ID } from "./creds";
-import { loadSavedTemplate, setupSaveHandler } from "./saveTemplate.js";
+import {
+  loadSavedTemplate,
+  saveCurrentTemplate,
+  setupSaveHandler,
+} from "./saveTemplate.js";
+
+import customFontExtension from "./external-custom-font";
+import couponBlockExtension from "./coupon-block";
+import externalAiAssistantExtension from "./external-ai-assistant";
+import externalSmartElementsExtension from "./external-smart-elements";
+import blocksPanelExtension from "./blocks-panel";
+import simpleBlockExtension from "./simple-block";
+import structureBlockExtension from "./structure-block";
+import externalMergeTagsUiExtension from "./external-merge-tags";
 
 // Wait for the Stripo editor script to load
 function loadStripoEditor() {
@@ -26,6 +39,9 @@ function _runEditor(template, extension) {
   window.UIEditor.initEditor(document.querySelector("#stripoEditorContainer"), {
     html: template.html,
     css: template.css,
+    // A boolean parameter that forces the replacement of an existing email in
+    // Stripo’s database with new HTML and CSS during editor initialization.
+    forceRecreate: true,
     metadata: {
       emailId: EMAIL_ID,
     },
@@ -38,7 +54,7 @@ function _runEditor(template, extension) {
           pluginId: PLUGIN_ID,
           secretKey: SECRET_KEY,
           userId: USER_ID,
-          role: "user",
+          role: "admin",
         }),
         function (data) {
           callback(JSON.parse(data).token);
@@ -51,8 +67,25 @@ function _runEditor(template, extension) {
     versionHistoryButtonSelector: "#versionHistoryButton",
     mobileViewButtonSelector: "#mobileViewButton",
     desktopViewButtonSelector: "#desktopViewButton",
+    ignoreClickOutsideSelectors: ["#externalMergeTags"],
     conditionsEnabled: true, // IMPORTANT: Enable display conditions
-    extensions: [extension],
+    extensions: [
+      extension,
+      customFontExtension,
+      couponBlockExtension,
+      externalAiAssistantExtension,
+      externalSmartElementsExtension,
+      externalMergeTagsUiExtension,
+      // blocksPanelExtension,
+      // simpleBlockExtension,
+      // structureBlockExtension,
+    ],
+    onSaveCompleted: (error) => {
+      console.log("onSaveCompleted", error);
+      if (!error) {
+        saveCurrentTemplate();
+      }
+    },
     onTemplateLoaded: () => {
       setupSaveHandler();
       // We pass an initial template to stripo with emailId.

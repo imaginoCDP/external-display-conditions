@@ -6,6 +6,6 @@ export const EDITOR_URL =
   "https://plugins.stripo.email/resources/uieditor/latest/UIEditor.js";
 
 export const USER_ID = import.meta.env.VITE_USER_ID || "1";
-export const EMAIL_ID = `${PLUGIN_ID}_${USER_ID}_demo_external_condition`;
+export const EMAIL_ID = `${PLUGIN_ID}_${USER_ID}_demo_external_cond22`;
 
 export const SAVE_TEMPLATE_KEY = "template";

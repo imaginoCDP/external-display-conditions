@@ -25,6 +25,28 @@ function getTemplate() {
   });
 }
 
+/**
+ * This method saves the current changes made by the user in the email editor.
+ * It is particularly useful when autosave is disabled. Required since stripo V2
+ * for Manual Save because all template loaded in the editor are recorded
+ * in the “reference email” in Stripo’s database, autosave enabled or not.
+ *
+ * @see https://plugin.stripo.email/plugin-invocations/javascript-api#actions-api
+ */
+function saveTemplate() {
+  if (!window.StripoEditorApi) {
+    return; // Nothing to do if the editor is stripo V1
+  }
+  return new Promise((resolve, reject) => {
+    window.StripoEditorApi.actionsApi.save((error) => {
+      if (error) {
+        return reject(error);
+      }
+      resolve();
+    });
+  });
+}
+
 // Get the current template from the editor and save it to localStorage
 async function saveCurrentTemplate() {
   const compilePromise = compile();
@@ -63,7 +85,7 @@ function loadSavedTemplate() {
 
 const setupSaveHandler = () => {
   const saveTemplateBtn = document.getElementById("saveTemplate");
-  saveTemplateBtn.onclick = saveCurrentTemplate;
+  saveTemplateBtn.onclick = saveTemplate;
 };
 
-export { setupSaveHandler, loadSavedTemplate };
+export { setupSaveHandler, loadSavedTemplate, saveCurrentTemplate };
