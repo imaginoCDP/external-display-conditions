@@ -766,17 +766,6 @@ export class MyExternalDisplayConditions extends ExternalDisplayConditionsLibrar
       })
       .join(" " + concatenation + " ");
 
-    console.log("submit", {
-      id: this.currentCondition?.id || Date.now(),
-      name: MSG.CONDITION_NAME,
-      description: MSG.CONDITION_DESCRIPTION,
-      beforeScript: "%IF " + finalCondition + "%",
-      afterScript: "%/IF%",
-      extraData:
-        "eyJleHByIjp7ImNvbXAiOiJhbmQiLCJ0eXBlIjoiY29tcCIsImFyZ3MiOlt7ImNvbXAiOiI9IiwidHlwZSI6ImNvbXAiLCJhcmdzIjpbeyJmaWVsZCI6InRhcmdldC5lbWFpbGFkZHJlc3MifSx7InR5cGUiOiJjb25zdCIsImNvbnN0IjoiYnJhbmRvbjI1QGFkdmVudHVyZS13b3Jrcy5jb20ifV0sImRhdGFUeXBlIjoiYm9vbGVhbiJ9XSwiZGF0YVR5cGUiOiJib29sZWFuIiwib3V0cHV0UGF0aCI6ImdnIn0sImlubGluZUV4cHIiOiJaMmM2SUhSaGNtZGxkQzVsYldGcGJHRmtaSEpsYzNNZ1BTQW5ZbkpoYm1SdmJqSTFRR0ZrZG1WdWRIVnlaUzEzYjNKcmN5NWpiMjBuIiwib3V0cHV0UGF0aCI6ImdnIn0=", // just for testing purpose
-      // conditionsCount: conditions?.length || 1,
-    });
-
     // Call the success callback
     this.selectConditionsCallback({
       id: this.currentCondition?.id || Date.now(),

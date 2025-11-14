@@ -1,4 +1,3 @@
-import extension from "./extension.js";
 import { PLUGIN_ID, SECRET_KEY, EDITOR_URL, EMAIL_ID, USER_ID } from "./creds";
 import {
   loadSavedTemplate,
@@ -6,6 +5,7 @@ import {
   setupSaveHandler,
 } from "./saveTemplate.js";
 
+import externalDisplayConditionsExtension from "./external-display-conditions";
 import customFontExtension from "./external-custom-font";
 import couponBlockExtension from "./coupon-block";
 import externalAiAssistantExtension from "./external-ai-assistant";
@@ -28,12 +28,12 @@ function loadStripoEditor() {
 // Initialize the editor
 function _initializeEditor() {
   _loadDemoTemplate((template) => {
-    _runEditor(template, extension);
+    _runEditor(template);
   });
 }
 
 // Run the editor with the provided template and extension
-function _runEditor(template, extension) {
+function _runEditor(template) {
   console.log("template.html passed to the editor", template.html);
 
   window.UIEditor.initEditor(document.querySelector("#stripoEditorContainer"), {
@@ -41,7 +41,7 @@ function _runEditor(template, extension) {
     css: template.css,
     // A boolean parameter that forces the replacement of an existing email in
     // Stripo’s database with new HTML and CSS during editor initialization.
-    forceRecreate: true,
+    forceRecreate: true, // For now, setting this to true => display condition's extraData is not returned
     metadata: {
       emailId: EMAIL_ID,
     },
@@ -70,12 +70,12 @@ function _runEditor(template, extension) {
     ignoreClickOutsideSelectors: ["#externalMergeTags"],
     conditionsEnabled: true, // IMPORTANT: Enable display conditions
     extensions: [
-      extension,
-      customFontExtension,
-      couponBlockExtension,
-      externalAiAssistantExtension,
-      externalSmartElementsExtension,
-      externalMergeTagsUiExtension,
+      externalDisplayConditionsExtension,
+      // customFontExtension,
+      // couponBlockExtension,
+      // externalAiAssistantExtension,
+      // externalSmartElementsExtension,
+      // externalMergeTagsUiExtension,
       // blocksPanelExtension,
       // simpleBlockExtension,
       // structureBlockExtension,
